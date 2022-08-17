@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./img/icons8-todo-list-24.png" />
-
     <script
       src="https://kit.fontawesome.com/2f5ef0f8ed.js"
       crossorigin="anonymous"
@@ -15,6 +14,48 @@
     <title>Todo list with LS</title>
   </head>
   <body>
-    <p>Hello World!</p>
+    <main class="app">
+      <section class="greeting">
+        <h2 class="title">
+          Hello, <input type="text" name="" id="name" placeholder="Name here" />
+        </h2>
+      </section>
+      <section class="create-todo">
+        <h3>CREATE TO DO</h3>
+        <form>
+          <h4 id="">What would you like to do?</h4>
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="......yes my lord"
+          />
+          <h4>Pick a category</h4>
+          <div class="options">
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category1"
+                value="bussines"
+              />
+              <span class="bubble business"></span>
+              <div>Business</div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category2"
+                value="personal"
+              />
+              <span class="bubble personal"></span>
+              <div>Business</div>
+            </label>
+          </div>
+          <input type="submit" value="Add todo." />
+        </form>
+      </section>
+    </main>
   </body>
 </html>
