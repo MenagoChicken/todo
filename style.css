@@ -1,3 +1,11 @@
-p {
-  color: red;
+:root {
+  --primary: #fed9b7;
+  --text: #023047;
+  --personal: #fc7b7b;
+  --business: #1f71ff;
+}
+
+body {
+  background: var(--primary);
+  color: var(--personal);
 }
