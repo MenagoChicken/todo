@@ -59,7 +59,9 @@ function displayTodoList() {
   todoListHTML.innerHTML = "";
 
   /*** create todo in web page ***/
-  todoList.forEach((element) => {
+  todoList.sort(stortByDate).forEach((element) => {
+    console.log(element.creationTime);
+
     const todoItem = document.createElement("div");
     const label = document.createElement("label");
     const input = document.createElement("input");
@@ -145,4 +147,8 @@ function displayTodoList() {
       displayTodoList();
     });
   });
+}
+
+function stortByDate(a, b) {
+  return b.creationTime - a.creationTime;
 }
