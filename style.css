@@ -66,6 +66,11 @@ h4 {
   font-weight: 700;
 }
 
+.create-todo #empty-error-message {
+  color: var(--danger);
+  visibility: hidden;
+}
+
 .create-todo input[type="text"] {
   display: block;
   width: 100%;
