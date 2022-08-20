@@ -54,20 +54,7 @@ function displayTodoList() {
   todoListHTML.innerHTML = "";
 
   todoList.forEach((element) => {
-    //   <div class="todo-item">
-    //   <label>
-    //     <input type="checkbox" />
-    //     <span class="bubble business"></span>
-    //   </label>
-    //   <div class="todo-content">
-    //     <input type="text" value="Create todo app." readonly />
-    //   </div>
-    //   <div class="actions">
-    //     <button class="edit">Edit</button>
-    //     <button class="delete">Delete</button>
-    //   </div>
-    // </div>
-    const divTodoItem = document.createElement("div");
+    const todoItem = document.createElement("div");
     const label = document.createElement("label");
     const input = document.createElement("input");
     const span = document.createElement("span");
@@ -76,7 +63,12 @@ function displayTodoList() {
     const editBtn = document.createElement("button");
     const deleteBtn = document.createElement("button");
 
-    divTodoItem.classList.add("todo-item");
+    todoItem.classList.add("todo-item");
+
+    if (element.done) {
+      todoItem.classList.add("done");
+    }
+
     input.type = "checkbox";
     input.checked = element.done;
     span.classList.add("bubble");
@@ -100,10 +92,38 @@ function displayTodoList() {
     label.appendChild(span);
     actions.appendChild(editBtn);
     actions.appendChild(deleteBtn);
-    divTodoItem.appendChild(label);
-    divTodoItem.appendChild(content);
-    divTodoItem.appendChild(actions);
+    todoItem.appendChild(label);
+    todoItem.appendChild(content);
+    todoItem.appendChild(actions);
 
-    todoListHTML.appendChild(divTodoItem);
+    todoListHTML.appendChild(todoItem);
+
+    /*** checked funcionality -> save state  ***/
+    input.addEventListener("click", (e) => {
+      console.log(todoList);
+      element.done = e.target.checked;
+      localStorage.setItem("localTodoList", JSON.stringify(todoList));
+
+      if (element.done) {
+        todoItem.classList.add("done");
+      }
+
+      displayTodoList();
+    });
+
+    /*** eddit button funcionalty -> svae state ***/
+    editBtn.addEventListener("click", (edit) => {
+      const input = content.querySelector("input");
+      input.removeAttribute("readonly");
+      input.focus();
+
+      input.addEventListener("blur", (e) => {
+        input.setAttribute("readonly", true);
+        element.content = e.target.value;
+        localStorage.setItem("localTodoList", JSON.stringify(todoList));
+
+        displayTodoList();
+      });
+    });
   });
 }

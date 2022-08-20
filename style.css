@@ -194,6 +194,7 @@ input:checked ~ .bubble::after {
 }
 
 .todo-item .todo-content input {
+  width: 90%;
   color: var(--text);
   font-size: 1.125rem;
 }
@@ -227,5 +228,5 @@ input:checked ~ .bubble::after {
 
 .todo-item.done .todo-content input {
   text-decoration: line-through;
-  color: var(--grey);
+  color: grey;
 }
