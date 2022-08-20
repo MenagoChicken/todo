@@ -1,5 +1,5 @@
 /***** contstants *****/
-const todoList = JSON.parse(localStorage.getItem("localTodoList")) || [];
+let todoList = JSON.parse(localStorage.getItem("localTodoList")) || [];
 const todoListHTML = document.querySelector("#todo-list");
 const nameInput = document.querySelector("#name");
 const newTodoForm = document.querySelector("#new-todo-form");
@@ -11,7 +11,7 @@ displayTodoList();
 
 /********** logic **********/
 
-/*** usser name -> localc storage ***/
+/*** user name -> local storage ***/
 nameInput.value = userName;
 nameInput.addEventListener("change", (name) => {
   localStorage.setItem("username", name.target.value);
@@ -24,6 +24,7 @@ newTodoForm.addEventListener("submit", (item) => {
   console.log("content " + item.target.elements.content.value.type);
   console.log("content " + item.target.elements.category.value.type);
 
+  /*** did user type anything and checked category  ***/
   if (
     !item.target.elements.content.value ||
     !item.target.elements.category.value
@@ -32,6 +33,8 @@ newTodoForm.addEventListener("submit", (item) => {
     console.log(todoList);
   } else {
     emptyErrorMessage.style.visibility = "hidden";
+
+    /*** create new todo ***/
     const todo = {
       content: item.target.elements.content.value,
       category: item.target.elements.category.value,
@@ -39,20 +42,23 @@ newTodoForm.addEventListener("submit", (item) => {
       creationTime: new Date().getTime(),
     };
 
-    console.log("BEFORE ADDING ELEMENT " + todoList);
+    /*** add new todo ***/
     todoList.push(todo);
+    /*** save to local storage ***/
     localStorage.setItem("localTodoList", JSON.stringify(todoList));
-    console.log("AFTER ADDING ELEMENT " + todoList);
+
     item.target.reset();
   }
 
+  /*** display list ***/
   displayTodoList();
 });
 
-/*** display list ***/
+/*** display list function ***/
 function displayTodoList() {
   todoListHTML.innerHTML = "";
 
+  /*** create todo in web page ***/
   todoList.forEach((element) => {
     const todoItem = document.createElement("div");
     const label = document.createElement("label");
@@ -111,7 +117,7 @@ function displayTodoList() {
       displayTodoList();
     });
 
-    /*** eddit button funcionalty -> svae state ***/
+    /*** edit button funcionalty -> save state ***/
     editBtn.addEventListener("click", (edit) => {
       const input = content.querySelector("input");
       input.removeAttribute("readonly");
@@ -124,6 +130,19 @@ function displayTodoList() {
 
         displayTodoList();
       });
+    });
+
+    /*** delete button funcionalty -> save state ***/
+    deleteBtn.addEventListener("click", (e) => {
+      console.log("delete clicked");
+      console.log(todoList);
+
+      todoList = todoList.filter((t) => t !== element);
+
+      console.log(todoList);
+
+      localStorage.setItem("localTodoList", JSON.stringify(todoList));
+      displayTodoList();
     });
   });
 }
