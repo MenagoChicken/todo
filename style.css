@@ -66,12 +66,12 @@ h4 {
   font-weight: 700;
 }
 
-.create-todo #empty-error-message {
-  color: var(--danger);
-  visibility: hidden;
+.create-todo h3 {
+  font-weight: 700;
 }
 
 .create-todo input[type="text"] {
+  margin: 1rem;
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -83,10 +83,19 @@ h4 {
 }
 
 .create-todo .options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.create-todo fieldset {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.create-todo .options legend {
+  padding: 1rem;
 }
 
 .create-todo .options label {
@@ -104,6 +113,12 @@ h4 {
 input[type="radio"],
 input[type="checkbox"] {
   display: none;
+}
+
+.create-todo #empty-error-message {
+  margin: auto;
+  color: var(--danger);
+  visibility: hidden;
 }
 
 .bubble {
