@@ -4,85 +4,96 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- icon -->
     <link rel="icon" href="./img/icons8-todo-list-24.png" />
+    <!-- fonts -->
     <script
       src="https://kit.fontawesome.com/2f5ef0f8ed.js"
       crossorigin="anonymous"
     ></script>
+    <!------- bootstrap ------->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- my css -->
     <link rel="stylesheet" href="../back_button_css/portfolioBackButton.css" />
     <link rel="stylesheet" href="style.css" />
+    <!-- my js -->
     <script defer src="app.js"></script>
     <title>Todo list with LS</title>
   </head>
   <body>
-    <a href="../../index.html#portfolio" class="portfolio-btn"
-    ><i class="fa-solid fa-reply"></i
-  ></a>
-    <main class="app">
-      <section class="greeting">
-        <!-- Hello with option to change the name -->
-        <h2 class="title">
-          Hello, <input type="text" name="" id="name" placeholder="Name here" />
-        </h2>
-      </section>
-      <section class="create-todo">
-        <!-- New todo -->
-        <h3>CREATE TODO</h3>
-         <form id="new-todo-form">
-          <label for="content" id="">What would you like to do?</h4>
-            <input
-            type="text"
-            name="content"
-            id="content"
-            placeholder="......yes my lord"
-            />
-        <fieldset class="options">
-          <legend>Pick a category for todo:</legend>
-            <label for="category1">
-            Bussines
-              <input
-              type="radio"
-              name="category"
-              id="category1"
-              value="bussines"
-              class=""
-              />
-              <span class="bubble business"></span>
-            </label>
-            <label for="category2">
-            Personal
-              <input
-              type="radio"
-              name="category"
-              id="category2"
-              value="personal"
-              />
-              <span class="bubble personal"></span>
-            </label>
-            <span id="empty-error-message">Error message: Todo cannot be empty and has to have category!</span>
-            <input type="submit" value="Add todo." />
-        </fieldset>
-        </form>
-      </section>
-      <section class="todo-list">
-        <h3>YOUR TODO LIST</h3>
-        <div class="list" id="todo-list">
-          <div class="todo-item">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble business"></span>
-            </label>
-            <div class="todo-content">
-              <input type="text" value="Create todo app." readonly />
+    <div class="container" class="app">
+      <a href="../../index.html#portfolio" class="portfolio-btn">
+        <i class="fa-solid fa-reply"></i>
+      </a>
+      <div class="row">
+        <section class="greeting">
+          <!-- Hello with option to change the name -->
+          <h2 class="title">
+            Hello, <input type="text" name="" id="name" placeholder="Name here" />
+          </h2>
+        </section>
+            <div class="col-lg-6 col-12 create-todo">
+              <!-- New todo -->
+              <h3>CREATE TODO</h3>
+              <form id="new-todo-form">
+                <label for="content" id="">What would you like to do?</h4>
+                  <input
+                  type="text"
+                  name="content"
+                  id="content"
+                  placeholder="......yes my lord"
+                  />
+                <fieldset class="options">
+                  <legend>Pick a category for todo:</legend>
+                  <label for="category1">
+                  Bussines
+                    <input
+                    type="radio"
+                    name="category"
+                    id="category1"
+                    value="bussines"
+                    class=""
+                    />
+                    <span class="bubble business"></span>
+                  </label>
+                  <label for="category2">
+                  Personal
+                    <input
+                    type="radio"
+                    name="category"
+                    id="category2"
+                    value="personal"
+                    />
+                    <span class="bubble personal"></span>
+                  </label>
+                  <span id="empty-error-message">Error message: Todo cannot be empty and has to have category!</span>
+                  <input type="submit" value="Add todo." />
+                </fieldset>
+              </form>
             </div>
-            <div class="actions">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
+          <div class="col-lg-6 col-12 todo-list">
+            <h3>YOUR TODO LIST</h3>
+            <div id="todo-list">
+              <div class="todo-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="bubble business"></span>
+                </label>
+                <div class="todo-content">
+                  <input type="text" value="Create todo app." readonly />
+                </div>
+                <div class="actions">
+                  <button class="edit">Edit</button>
+                  <button class="delete">Delete</button>
+                </div>
+             </div>
             </div>
-          </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   </body>
 </html>
