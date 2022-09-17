@@ -39,14 +39,14 @@
               <!-- New todo -->
               <h3>CREATE TODO</h3>
               <form id="new-todo-form">
-                <label for="content" id="">What would you like to do?</h4>
+                <label for="content" id=""><h4>What would you like to do?</h4></label>
                   <input
                   type="text"
                   name="content"
                   id="content"
                   placeholder="......yes my lord"
                   />
-                <fieldset class="options">
+                <fieldset>
                   <legend>Pick a category for todo:</legend>
                   <label for="category1">
                   Bussines
@@ -55,7 +55,6 @@
                     name="category"
                     id="category1"
                     value="bussines"
-                    class=""
                     />
                     <span class="bubble business"></span>
                   </label>
@@ -76,7 +75,7 @@
             </div>
           <div class="col-lg-6 col-12 todo-list">
             <h3>YOUR TODO LIST</h3>
-            <div id="todo-list">
+            <div class="list" id="todo-list">
               <div class="todo-item">
                 <label>
                   <input type="checkbox" />
@@ -86,12 +85,12 @@
                   <input type="text" value="Create todo app." readonly />
                 </div>
                 <div class="actions">
-                  <button class="edit">Edit</button>
-                  <button class="delete">Delete</button>
-                </div>
-             </div>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+              </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
